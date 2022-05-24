@@ -11,9 +11,7 @@ export const getChargingStationList = createAsyncThunk(
     try {
       result = await axios.get(API_URL, {
         params: {
-          key: API_KEY,
-
-          targetDt: payload.targetDt,
+          SIGUN_NM: payload.SIGUN_NM,
         },
       });
     } catch (e) {

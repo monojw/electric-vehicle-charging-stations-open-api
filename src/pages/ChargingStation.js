@@ -8,15 +8,11 @@ const ChargingStation = () => {
   const { data, loading, error } = useSelector(
     (state) => state.chargingStation,
   );
-  const [targetDt, setTargetDt] = useState(
-    dayjs().add(-1, 'd').format('YYYY-MM-DD'),
-  );
+
   useEffect(() => {
-    dispatch(
-      getChargingStationList({ targetDt: targetDt.replaceAll('-', '') }),
-    );
-  }, [dispatch, targetDt]);
-  console.log(data);
+    dispatch(getChargingStationList({ SIGUN_NM: '가평군' }));
+  }, [dispatch]);
+  console.log(data.Elctychrgstatn[1].row);
 
   return (
     <div>
