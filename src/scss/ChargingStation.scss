@@ -5,6 +5,7 @@
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 15px;
 
   .title {
     color: #1db954;
@@ -25,6 +26,12 @@
         box-shadow: 0 0 0 1000px white inset;
          -webkit-box-shadow: 0 0 0 1000px white inset;
       }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .mobile {
+      display: none;
     }
   }
 }

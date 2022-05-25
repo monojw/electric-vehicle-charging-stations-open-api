@@ -8,6 +8,7 @@ const Table = styled.table`
   text-align: center;
   margin: auto;
   width: 100%;
+  min-width: 300px;
   margin-bottom: 20px;
 
   th {

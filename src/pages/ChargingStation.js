@@ -49,10 +49,10 @@ const ChargingStation = () => {
                 <th>충전소명</th>
                 <th>소재지지번주소</th>
                 <th>소재지도로명주소</th>
-                <th>소재지우편번호</th>
-                <th>위도</th>
-                <th>경도</th>
-                <th>운영기관명</th>
+                <th className="mobile">소재지우편번호</th>
+                <th className="mobile">위도</th>
+                <th className="mobile">경도</th>
+                <th className="mobile">운영기관명</th>
                 <th>충전기타입명</th>
               </tr>
             </thead>
@@ -68,10 +68,10 @@ const ChargingStation = () => {
                         <td>{v.CHRGSTATN_NM}</td>
                         <td>{v.REFINE_LOTNO_ADDR}</td>
                         <td>{v.REFINE_ROADNM_ADDR}</td>
-                        <td>{v.REFINE_ZIP_CD}</td>
-                        <td>{v.REFINE_WGS84_LAT}</td>
-                        <td>{v.REFINE_WGS84_LOGT}</td>
-                        <td>{v.OPERT_INST_NM}</td>
+                        <td className="mobile">{v.REFINE_ZIP_CD}</td>
+                        <td className="mobile">{v.REFINE_WGS84_LAT}</td>
+                        <td className="mobile">{v.REFINE_WGS84_LOGT}</td>
+                        <td className="mobile">{v.OPERT_INST_NM}</td>
                         <td>{v.CHARGER_TYPE_NM}</td>
                       </tr>
                     );
