@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { getChargingStationList } from '../slices/ChargingStationSlice';
@@ -10,6 +10,7 @@ import KakaoMap from '../components/KakaoMap';
 import Pagination from '../components/Pagination';
 
 import '../scss/ChargingStation.scss';
+import Search from '../components/Search';
 
 const ChargingStation = () => {
   const dispatch = useDispatch();
@@ -17,29 +18,14 @@ const ChargingStation = () => {
     (state) => state.chargingStation,
   );
 
-  /* 검색어 */
-  const [search, setSearch] = useState('');
-
   /* 페이지네이션 */
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
 
   useEffect(() => {
-    dispatch(getChargingStationList({ SIGUN_NM: '성남시' }));
+    dispatch(getChargingStationList({}));
   }, [dispatch]);
-
-  const onChange = useCallback((e) => {
-    setSearch(e.target.value);
-  }, []);
-
-  const onSubmit = useCallback(
-    (e) => {
-      e.preventDefault();
-      dispatch(getChargingStationList({ SIGUN_NM: search }));
-    },
-    [dispatch, search],
-  );
 
   return (
     <>
@@ -52,15 +38,7 @@ const ChargingStation = () => {
           <h1 className="title">경기도 전기차 충전소</h1>
 
           {/* 검색 */}
-          <form onSubmit={onSubmit} className="searchForm">
-            <input
-              type="text"
-              name="search"
-              placeholder="충전소 시군명을 입력하세요. (예: 성남시)"
-              value={search}
-              onChange={onChange}
-            />
-          </form>
+          <Search />
 
           {/* 충전소 현황 데이터 */}
           <Table>
@@ -108,9 +86,9 @@ const ChargingStation = () => {
               limit={limit}
               page={page}
               setPage={setPage}
-              search={search}
             />
           )}
+
           {/* 카카오 지도 API */}
           {data && <KakaoMap data={data.Elctychrgstatn[1].row} />}
         </div>

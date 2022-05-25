@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const API_KEY = 'b48606a7f1ea4c168a68a645936beb95';
-const API_URL = `https://openapi.gg.go.kr/Elctychrgstatn?TYPE=json&&?KEY=${API_KEY}&Type=json&pSize=1000`;
+const API_URL = `https://openapi.gg.go.kr/Elctychrgstatn?TYPE=json&&&Type=json&pSize=100`;
 
 export const getChargingStationList = createAsyncThunk(
   'ChargingStationSlice/getChargingStationList',
@@ -13,6 +13,7 @@ export const getChargingStationList = createAsyncThunk(
         params: {
           key: API_KEY,
           SIGUN_NM: payload.SIGUN_NM,
+          pIndex: payload.pIndex ? payload.pIndex : 1,
         },
       });
 
