@@ -3,4 +3,28 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .title {
+    color: #1db954;
+  }
+
+  .searchForm {
+    input {
+      width: 300px;
+      height: 25px;
+      border: solid 1px #dadada;
+      padding: 10px 14px;
+      margin-bottom: 20px;
+      background: #fff;
+      vertical-align: top;
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 1000px white inset;
+         -webkit-box-shadow: 0 0 0 1000px white inset;
+      }
+    }
+  }
 }

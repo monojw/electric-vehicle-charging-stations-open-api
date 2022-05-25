@@ -4,7 +4,6 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 const API_KEY = 'b48606a7f1ea4c168a68a645936beb95';
 const API_URL = `https://openapi.gg.go.kr/Elctychrgstatn?TYPE=json&&?KEY=${API_KEY}&Type=json&pSize=1000`;
 
-
 export const getChargingStationList = createAsyncThunk(
   'ChargingStationSlice/getChargingStationList',
   async (payload, { rejectWithValue }) => {
@@ -13,17 +12,19 @@ export const getChargingStationList = createAsyncThunk(
       result = await axios.get(API_URL, {
         params: {
           key: API_KEY,
+          SIGUN_NM: payload.SIGUN_NM,
         },
       });
-      
-      if(result.data.faultInfo !== undefined){
+
+      if (result.data.RESULT !== undefined) {
         const e = new Error();
-        e.response = {status: 500, statusText: result.data.faultInfo.message};
+        e.response = { status: 500, statusText: result.data.RESULT.MESSAGE };
         throw e;
       }
     } catch (e) {
       result = rejectWithValue(e.response);
     }
+
     return result;
   },
 );

@@ -1,5 +1,5 @@
 /* global kakao */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import '../scss/KakaoMap.scss';
 import imgSrc from '../img/marker.png';
@@ -35,7 +35,7 @@ const KakaoMap = ({ data }) => {
       let content = `
       <div class="infoWindowContainer">
         <div class="infoWindow">
-          <div class="title">
+          <div class="infoTitle">
             <b>충전소명: </b>${data[i].CHRGSTATN_NM}
           </div>
           <div class="address">
