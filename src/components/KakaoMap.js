@@ -13,6 +13,7 @@ import imgSrc from '../img/marker.png';
 const { kakao } = window;
 
 const KakaoMap = ({ data }) => {
+  console.log(data);
   useEffect(() => {
     let container = document.getElementById('map');
     let options = {
@@ -45,7 +46,9 @@ const KakaoMap = ({ data }) => {
             <b>충전소명: </b>${data[i].CHRGSTATN_NM}
           </div>
           <div class="address">
-            <b>주소: </b>${data[i].REFINE_ROADNM_ADDR}
+            <b>주소: </b>${
+              data[i].REFINE_ROADNM_ADDR || data[i].REFINE_LOTNO_ADDR
+            }
           </div>
         </div>
       </div>
