@@ -68,6 +68,8 @@ const ChargingStation = () => {
                         <td>
                           <a
                             href={`https://map.kakao.com/link/map/${v.REFINE_WGS84_LAT},${v.REFINE_WGS84_LOGT}`}
+                            target="_blank"
+                            rel="noreferrer"
                           >
                             {v.CHRGSTATN_NM}
                           </a>

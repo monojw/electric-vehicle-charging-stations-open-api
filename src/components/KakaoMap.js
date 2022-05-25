@@ -13,7 +13,6 @@ import imgSrc from '../img/marker.png';
 const { kakao } = window;
 
 const KakaoMap = ({ data }) => {
-  console.log(data);
   useEffect(() => {
     let container = document.getElementById('map');
     let options = {
