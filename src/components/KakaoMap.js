@@ -1,5 +1,11 @@
+/**
+ * @filename    : KakaoMap.js
+ * @author      : 전우열
+ * @description : 카카오 Maps API 사용하여 화면에 충전소를 표시
+ */
+
 /* global kakao */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 import '../scss/KakaoMap.scss';
 import imgSrc from '../img/marker.png';
