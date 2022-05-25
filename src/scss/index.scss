@@ -3,3 +3,21 @@
   margin: 0;
   padding: 0;
 }
+
+a {
+  text-decoration: none;
+  outline: none;
+
+  &:visited,
+  &:link {
+    text-decoration: none;
+    color: #000;
+  }
+
+  &:hover,
+  &:active {
+    text-decoration: none;
+    color: #fff;
+    background-color: #1db954;
+  }
+}

@@ -65,7 +65,13 @@ const ChargingStation = () => {
                       <tr key={i}>
                         <td>{i + 1}</td>
                         <td>{v.SIGUN_NM}</td>
-                        <td>{v.CHRGSTATN_NM}</td>
+                        <td>
+                          <a
+                            href={`https://map.kakao.com/link/map/${v.REFINE_WGS84_LAT},${v.REFINE_WGS84_LOGT}`}
+                          >
+                            {v.CHRGSTATN_NM}
+                          </a>
+                        </td>
                         <td>{v.REFINE_LOTNO_ADDR}</td>
                         <td>{v.REFINE_ROADNM_ADDR}</td>
                         <td className="mobile">{v.REFINE_ZIP_CD}</td>
